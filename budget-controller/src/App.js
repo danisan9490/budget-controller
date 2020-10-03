@@ -26,7 +26,7 @@ function App() {
 
     setCreateExpense(false);
 
-  }, [createExpense, newExpense, amountLeft, expenses])
+  }, [createExpense])
 
 
   return (
