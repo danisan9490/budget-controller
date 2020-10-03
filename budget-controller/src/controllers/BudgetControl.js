@@ -1,13 +1,14 @@
 import React from 'react';
+import { reviewBudget } from '../helper'
 
-const BudgetControl = ({ budget, AmountLeft }) => {
+const BudgetControl = ({ budget, amountLeft }) => {
   return (
     <div>
       <div className="alert  alert-primary">
         Initial Budget: {budget}
       </div>
-      <div className="alert">
-        Current Budget: {AmountLeft}
+      <div className={reviewBudget(budget, amountLeft)}>
+        Current Budget: {amountLeft}
       </div>
     </div>
   );

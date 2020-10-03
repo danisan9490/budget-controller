@@ -7,7 +7,7 @@ import Form from './controllers/Form';
 function App() {
 
   const [budget, setBudget] = useState(0);
-  const [AmountLeft, setAmountLeft] = useState(0);
+  const [amountLeft, setAmountLeft] = useState(0);
   const [showBudgetQuestion, setShowBudgetQuestion] = useState(true);
   const [expenses, setExpenses] = useState([]);
   const [newExpense, setNewExpense] = useState({});
@@ -21,7 +21,7 @@ function App() {
       ])
     }
 
-    const budgetLeft = AmountLeft - newExpense.amount;
+    const budgetLeft = amountLeft - newExpense.amount;
     setAmountLeft(budgetLeft);
 
     setCreateExpense(false);
@@ -49,7 +49,7 @@ function App() {
                 />
                 <BudgetControl
                   budget={budget}
-                  AmountLeft={AmountLeft}
+                  amountLeft={amountLeft}
                 />
               </div>
               <div className="one-half column">
