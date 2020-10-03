@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Error from './Error'
+import Error from './Error';
 
 const BudgetQuestion = ({ setBudget, setAmountLeft, setShowBudgetQuestion }) => {
 
@@ -24,7 +24,6 @@ const BudgetQuestion = ({ setBudget, setAmountLeft, setShowBudgetQuestion }) => 
   return (
     <div>
       <h2>Insert your Budget</h2>
-      {error ? <Error message="Invalid amount" /> : null}
 
       <form
         onSubmit={handleSubmit}
@@ -42,6 +41,7 @@ const BudgetQuestion = ({ setBudget, setAmountLeft, setShowBudgetQuestion }) => 
           value="Conitinue"
 
         />
+        {error ? <Error message="Invalid amount" /> : null}
 
       </form>
     </div>

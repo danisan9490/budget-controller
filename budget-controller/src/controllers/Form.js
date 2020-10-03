@@ -1,9 +1,33 @@
 import React, { useState } from 'react'
+import Error from './Error';
+import shortid from 'shortid';
 
 const Form = () => {
+
+  const [expense, setExpense] = useState('');
+  const [amount, setAmount] = useState(0);
+  const [error, setError] = useState(false);
+
+  const addExpense = e => {
+    e.preventDefault();
+    if (amount < 1 || isNaN(amount) || expense.trim() === '') {
+      setError(true);
+      return;
+    }
+    setError(false);
+
+    const expenses = {
+      expense,
+      amount,
+      id: shortid.generate()
+    }
+    console.log(expenses)
+
+
+  }
+
   return (
-    <form
-    >
+    <form onSubmit={addExpense} >
       <h2>Expenses</h2>
 
       <div className="field">
@@ -12,6 +36,8 @@ const Form = () => {
           type="text"
           className="u-full-width"
           placeholder="Example: Transport, Rent..."
+          value={expense}
+          onChange={e => setExpense(e.target.value)}
         />
       </div>
       <div className="field">
@@ -20,6 +46,8 @@ const Form = () => {
           type="number"
           className="u-full-width"
           placeholder="Example: 300..."
+          value={amount}
+          onChange={e => setAmount(parseInt(e.target.value, 10))}
         />
       </div>
       <input
@@ -27,6 +55,7 @@ const Form = () => {
         className="button-primary u-full-width"
         value="Add expense..."
       />
+      {error ? <Error message="All Fields Are Required, Invalid Form" /> : null}
 
     </form>
   )
