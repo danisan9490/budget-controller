@@ -7,7 +7,7 @@ const BudgetQuestion = ({ setBudget, setAmountLeft, setShowBudgetQuestion }) => 
   const [error, setError] = useState(false);
 
   const defineBudget = e => {
-    setAmount(parseInt(e.target.value))
+    setAmount(parseInt(e.target.value, 10))
   }
 
   const handleSubmit = (e) => {

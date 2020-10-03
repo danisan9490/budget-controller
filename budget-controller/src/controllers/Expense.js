@@ -3,7 +3,7 @@ import React from 'react';
 
 const Expense = ({ expense }) => {
   return (
-    <li className="exoenses" >
+    <li className="expenses" >
       <p>
         {expense.expense}
         <span className="expense">£  {expense.amount}</span>

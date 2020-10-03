@@ -5,11 +5,12 @@ import shortid from 'shortid';
 const Form = ({ setNewExpense, setCreateExpense }) => {
 
   const [expense, setExpense] = useState('');
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState('');
   const [error, setError] = useState(false);
 
   const addExpense = e => {
     e.preventDefault();
+
     if (amount < 1 || isNaN(amount) || expense.trim() === '') {
       setError(true);
       return;
@@ -21,19 +22,22 @@ const Form = ({ setNewExpense, setCreateExpense }) => {
       amount,
       id: shortid.generate()
     }
+
     setNewExpense(expenses);
-    setExpense('');
-    setAmount(0);
     setCreateExpense(true);
 
+    setExpense('');
+    setAmount('');
   }
+
+
 
   return (
     <form onSubmit={addExpense} >
       <h2>Expenses</h2>
 
       <div className="field">
-        <label>Expense Name</label>
+        <label>Source of Expense</label>
         <input
           type="text"
           className="u-full-width"
@@ -55,7 +59,7 @@ const Form = ({ setNewExpense, setCreateExpense }) => {
       <input
         type="submit"
         className="button-primary u-full-width"
-        value="Add expense..."
+        value="Add expense"
       />
       {error ? <Error message="All Fields Are Required, Invalid Form" /> : null}
 

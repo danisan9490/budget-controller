@@ -8,7 +8,7 @@ const BudgetControl = ({ budget, amountLeft }) => {
         Initial Budget: {budget}
       </div>
       <div className={reviewBudget(budget, amountLeft)}>
-        Current Budget: {amountLeft}
+        Current Balance: {amountLeft}
       </div>
     </div>
   );
