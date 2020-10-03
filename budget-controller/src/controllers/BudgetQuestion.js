@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Error from './Error'
 
-const BudgetQuestion = ({ setBudget, setAmountLeft }) => {
+const BudgetQuestion = ({ setBudget, setAmountLeft, setShowBudgetQuestion }) => {
 
   const [amount, setAmount] = useState(0);
   const [error, setError] = useState(false);
@@ -19,7 +19,7 @@ const BudgetQuestion = ({ setBudget, setAmountLeft }) => {
     setError(false);
     setBudget(amount);
     setAmountLeft(amount);
-
+    setShowBudgetQuestion(false);
   }
   return (
     <div>
